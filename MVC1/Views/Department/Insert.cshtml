@@ -1,0 +1,26 @@
+﻿@model MVC1.Models.Department
+
+@{
+    ViewBag.Title = "Insert";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Insert</h2>
+
+<div class="form-group">
+
+    <h4>Department</h4>
+
+    <form action="~/Department/Insert" method="post">
+
+        @Html.TextBoxFor(n => n.Dep_Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(n => n.Dep_Name, "", new { @class = "text-danger" })
+        <hr />
+        <input type="submit" value="Create" class="btn btn-default" />
+    </form>
+
+</div>
+
+<div>
+    @Html.ActionLink("Back to List", "Departments")
+</div>

@@ -1,0 +1,31 @@
+﻿@model MVC1.Models.Student
+
+@{
+    ViewBag.Title = "Insert";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Insert</h2>
+
+<div class="form-group">
+
+    <h4>Student</h4>
+
+    <form action="~/Student/Insert" method="post">
+
+        @Html.TextBoxFor(n => n.Stud_Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(n => n.Stud_Name, "", new { @class = "text-danger" })
+
+        @Html.TextBoxFor(n => n.Stud_Age, new { @class = "form-control" })
+        @Html.ValidationMessageFor(n => n.Stud_Age, "", new { @class = "text-danger" })
+
+        @Html.DropDownListFor(n => n.Dep_ID, (SelectList)ViewBag.Dep ,new { @class = "form-control" })
+        <hr />
+        <input type="submit" value="Create" class="btn btn-default" />
+    </form>
+
+</div>
+
+<div>
+    @Html.ActionLink("Back to List", "Departments")
+</div>

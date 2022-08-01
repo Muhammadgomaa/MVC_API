@@ -1,0 +1,47 @@
+﻿@model MVC1.Models.Student
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Student</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Student ID
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Stud_ID)
+        </dd>
+
+        <dt>
+            Student Name
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Stud_Name)
+        </dd>
+
+        <dt>
+            Student Age
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Stud_Age)
+        </dd>
+
+        <dt>
+            Studnet Department
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Department.Dep_Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Stud_ID }) |
+    @Html.ActionLink("Back to List", "Students")
+</p>

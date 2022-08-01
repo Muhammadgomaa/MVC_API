@@ -1,0 +1,52 @@
+﻿@model IEnumerable<MVC1.Models.Student>
+
+@{
+    ViewBag.Title = "Students";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Students</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Insert")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Student ID
+        </th>
+        <th>
+            Student Name
+        </th>
+        <th>
+            Student Age
+        </th>
+        <th>
+            Student Department
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Stud_ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Stud_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Stud_Age)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Department.Dep_Name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Stud_ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Stud_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Stud_ID })
+        </td>
+    </tr>
+}
+
+</table>

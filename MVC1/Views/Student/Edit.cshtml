@@ -1,0 +1,33 @@
+﻿@model MVC1.Models.Student
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+
+<div class="form-group">
+
+    <h4>Student</h4>
+
+    <form action="~/Student/Edit" method="post">
+
+        @Html.HiddenFor(model => model.Stud_ID)
+
+        @Html.TextBoxFor(n => n.Stud_Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(n => n.Stud_Name, "", new { @class = "text-danger" })
+
+        @Html.TextBoxFor(n => n.Stud_Age, new { @class = "form-control" })
+        @Html.ValidationMessageFor(n => n.Stud_Age, "", new { @class = "text-danger" })
+
+        @Html.DropDownListFor(n => n.Dep_ID, (SelectList)ViewBag.Dep, new { @class = "form-control" })
+        <hr />
+        <input type="submit" value="Edit" class="btn btn-default" />
+    </form>
+
+</div>
+
+<div>
+    @Html.ActionLink("Back to List", "Students")
+</div>
